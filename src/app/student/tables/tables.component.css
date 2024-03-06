@@ -1,0 +1,13 @@
+.odd {
+  background-color: aquamarine;
+}
+.even {
+  background-color: rgb(228, 143, 143);
+}
+.details {
+  display: flex;
+  flex-direction: row;
+}
+.details p {
+  margin-left: 10px;
+}

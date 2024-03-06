@@ -1,0 +1,13 @@
+<div class="mt-5 mx-auto d-flex flex-column" style="width: 50%">
+  Id : <input type="text" name="id" [(ngModel)]="newStudent.id" /> Name :
+  <input type="text" name="name" [(ngModel)]="newStudent.name" /> Age :<input
+    type="text"
+    name="age"
+    [(ngModel)]="newStudent.age"
+  />
+  Rate :
+  <input type="text" name="rate" [(ngModel)]="newStudent.rate" />
+  <button (click)="save()" class="mt-3 align-self-center" style="width: 50%">
+    Add
+  </button>
+</div>

@@ -1,0 +1,9 @@
+.rate-parent {
+  overflow: hidden;
+}
+.rate-child {
+  color: yellow;
+}
+.rate-child .fa {
+  font-size: 13.1px;
+}

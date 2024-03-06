@@ -1,0 +1,59 @@
+<!-- one way data binding-->
+<!-- <h1>{{ age }}</h1>
+<h1>{{ inputValue }}</h1>
+<img [attr.src]="imageSrc" alt="" /> -->
+<!-- <input (keydown)="writeValue($event)" /> -->
+<!-- Two way data binging without directives -->
+<!-- <input #tname (keyup)="writeValueWithTname(tname.value)" /> -->
+<!-- Two way data binging with directives -->
+<!-- <input [(ngModel)]="inputValue" /> -->
+<!-- -------------------------------------------------------- -->
+<!-- <h1>{{ student.name }}</h1>
+<h1>{{ student.age }}</h1>
+<h1>{{ student.sayHello() }}</h1> -->
+<!-- <input type="text" [(ngModel)]="studentDegree" /> -->
+<!-- -------------------------------------------------------------------- -->
+<!-- <div *ngIf="studentDegree >= 30; else t">Student passed</div>
+  <ng-template #t>
+    <div>Failed</div>
+  </ng-template>  -->
+<!-- -------------------------------------------------------------------- -->
+
+<div class="table-responsive">
+  <table class="col-md-8 m-auto">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of students; let i = index"
+        [ngClass]="{ odd: i % 2 === 0, even: i % 2 != 0 }"
+        [ngStyle]="{ color: i % 2 != 0 ? 'black' : 'blue' }"
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.age }}</td>
+        <td>
+          {{ item.rate }}
+          <app-rate [rateValue]="item.rate"></app-rate>
+        </td>
+        <button class="btn-primary" (click)="show(item.id)">Details</button>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alert alert-danger" *ngIf="disabled">
+    <app-details
+      [studentDatails]="selectedDatails"
+      (onHideDetails)="disabled = $event"
+    ></app-details>
+  </div>
+  <app-add-student (onAddStudent)="add($event)"></app-add-student>
+</div>
+<!-- <button class="btn-primary" (click)="changeRate()">Change</button> -->
